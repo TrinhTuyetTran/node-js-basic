@@ -67,4 +67,57 @@ try {
 
 
 //The aysnc and await Keywords
-// git 
+// git
+
+
+
+
+//States of a JavaScript Promise
+const promise = new Promise((resolve, reject) => {
+    const res = true;
+    // An asynchronous operation.
+    if (res) {
+        resolve('Resolved!');
+    }
+    else {
+        reject(Error('Error'));
+    }
+});
+
+promise.then((res) => console.log(res), (err) => alert(err));
+
+
+
+//The .catch() method for handling rejection
+const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        reject(Error('Promise Rejected Unconditionally.'));
+    }, 1000);
+});
+
+promise.then((res) => {
+    console.log(value);
+});
+
+promise.catch((err) => {
+    alert(err);
+});
+
+
+
+//JavaScript Promise.all()  
+const promise1 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(3);
+    }, 300);
+  });
+  const promise2 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(2);
+    }, 200);
+  });
+  
+  Promise.all([promise1, promise2]).then((res) => {
+    console.log(res[0]);
+    console.log(res[1]);
+  });
